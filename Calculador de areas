@@ -3,38 +3,52 @@ print("======================")
 print("El Calculador de areas")
 print("======================")
 
-
 print("1) triangulo")
 print("2) cuadrado")
 print("3) reactangulo")
 print("4) ciruclo")
 
-#haremos la pregunta
-Q1 = int(input("De que figura te gustaria sacar el area?: "))
+# Pedimos la figura como texto
+Q1 = input("De que figura te gustaria sacar el area?: ")
 
-#haremos la reglas, junto con matematicas...
-if Q1 == 1:
-  altura = float(input("ingresa el altura: "))
-  base = float(input("ingresa la base: " ))
-  area_t = (altura * base)/2 
-  print(area_t)
+# No tengo idea de que es esto... asi que pedi ayuda...
+if Q1.isdigit():
+  Q1 = int(Q1)  # ahora sí lo convertimos
+  #haremos la reglas, junto con matematicas...
+  if Q1 == 1:
+    altura = float(input("ingresa el altura: "))
+    base = float(input("ingresa la base: " ))
+    if altura > 0 and base > 0:
+      area_t = (altura * base)/2 
+      print(f"el area del triangulo es: {area_t}")
+    else:
+      print("La altura y la base deben ser números positivos")
 
-elif Q1 == 2:
-  lado = float(input("ingresa el lado: "))
-  area_c = (lado ** 2) 
-  print(f'el area del cuadrado es: {area_c}')
+  elif Q1 == 2:
+    lado = float(input("ingresa el lado: "))
+    if lado > 0:
+      area_c = (lado ** 2) 
+      print(f'el area del cuadrado es: {area_c}')
+    else:
+      print("El lado debe ser un número positivo")
 
-elif Q1 == 3:
-  largo_r = float(input("Ingresa el largo: "))
-  ancho_r = float(input("ingresa el ancho: "))
-  print(f'el area del rectangulo es: {largo_r * ancho_r}')
+  elif Q1 == 3:
+    largo_r = float(input("Ingresa el largo: "))
+    ancho_r = float(input("ingresa el ancho: "))
+    if largo_r > 0 and ancho_r > 0:
+      print(f'el area del rectangulo es: {largo_r * ancho_r}')
+    else:
+      print("El largo y el ancho deben ser números positivos")
 
-elif Q1 == 4:
-  radio = float(input("ingresa el radio: "))
-  print(f'el area del circulo es : {3.14 * radio ** 2}')\
+  elif Q1 == 4:
+    radio = float(input("ingresa el radio: "))
+    if radio > 0:
+      print(f'el area del circulo es : {3.14 * radio ** 2}')
+    else:
+      print("El radio debe ser un número positivo")
 
-elif Q1 >= 5:
-  print("numero no valido, solo de 1 a 4...")
+  elif Q1 >= 5:
+    print("numero no valido, solo de 1 a 4...")
 
 else:
-  print("No se admiten letras")
+  print("No se admiten letras, solo números del 1 al 4.")
